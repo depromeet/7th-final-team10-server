@@ -10,11 +10,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
@@ -35,8 +33,6 @@ class KakaoBookClient implements BookClient {
     private final ObjectMapper objectMapper;
 
     private final HttpClient client;
-
-    private final RestTemplate client2;
 
     private final URI baseUri;
 
@@ -70,14 +66,6 @@ class KakaoBookClient implements BookClient {
         );
 
         this.assembler = assembler;
-
-        client2 = new RestTemplateBuilder()
-                .rootUri(kakaoBookProperties.getUrl())
-                .defaultHeader(authenticationHeader.getKey(),
-                        authenticationHeader.getKey())
-                .setReadTimeout(clientProperties.getReadTimeout())
-                .setConnectTimeout(clientProperties.getConnectionTimeout())
-                .build();
     }
 
     @Cacheable(CacheKey.KakaoBookSearch)

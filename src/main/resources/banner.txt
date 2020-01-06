@@ -1,0 +1,9 @@
+${AnsiColor.BLUE}
+.-.      .          .-.       .     .-.   ..          .      .
+`-..-..-...-..-.    |< .-..-.-|-    |< .-..| .-,.-..-.| .-. -|-.-,
+`-'|-''  '' '`-|    '-'`-'`-' '-    '-'`-'''-`'-'  |-''-`-`- '-`'-
+   '         `-'                                   '
+
+${AnsiColor.WHITE} :: Running Spring Boot ${AnsiColor.BRIGHT_RED}${spring-boot.version} ${AnsiColor.WHITE}:: ${AnsiColor.BRIGHT_BLUE}\ö/${AnsiColor.BLACK}
+
+

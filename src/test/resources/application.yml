@@ -1,0 +1,62 @@
+spring:
+  profiles:
+    active: test
+    include:
+      - oauth
+      - kakao
+      - aws
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+    show-sql: true
+    format-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    generate-ddl: true
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    url: jdbc:h2:mem:test
+
+boiled-egg:
+  async-executor:
+    core-pool-size: 2
+    max-pool-size: 5
+    queue-capacity: 10
+
+  file:
+    s3:
+      bucket-name: boiled-egg
+      aws:
+        region: ap-northeast-2
+        access-key: ${boiled-egg.aws.access-key}
+        secret-key: ${boiled-egg.aws.secret-key}
+
+  email:
+    ses:
+      aws:
+        region: us-east-1
+        access-key: ${boiled-egg.aws.access-key}
+        secret-key: ${boiled-egg.aws.secret-key}
+
+  book:
+    kakao:
+      url: https://dapi.kakao.com/v3/search/book
+      api-key: ${boiled-egg.kakao.api-key}
+      authorization-header-key: Authorization
+      authorization-scheme: KakaoAK
+      client:
+        connection-timeout: 3s
+
+server:
+  port: 8080
+  error:
+    include-exception: false
+    whitelabel:
+      enabled: false

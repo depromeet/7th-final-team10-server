@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: @activeProfiles@
+    include:
+      - oauth
+      - kakao
+      - aws
+  application:
+    name: boiled-egg
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 50MB
+
+boiled-egg:
+  async-executor:
+    core-pool-size: 2
+    max-pool-size: 5
+    queue-capacity: 10
+
+  file:
+    s3:
+      bucket-name: boiled-egg
+      aws:
+        region: ap-northeast-2
+        access-key: ${boiled-egg.aws.access-key}
+        secret-key: ${boiled-egg.aws.secret-key}
+
+  email:
+    ses:
+      aws:
+        region: us-east-1
+        access-key: ${boiled-egg.aws.access-key}
+        secret-key: ${boiled-egg.aws.secret-key}
+    content-char-set: UTF-8
+    sender: jaeyeonling@gmail.com
+
+  book:
+    kakao:
+      url: https://dapi.kakao.com/v3/search/book
+      api-key: ${boiled-egg.kakao.api-key}
+      authorization-header-key: Authorization
+      authorization-scheme: KakaoAK
+      client:
+        connection-timeout: 3s
+        read-timeout: 3s

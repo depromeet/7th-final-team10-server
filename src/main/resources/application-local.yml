@@ -1,0 +1,28 @@
+spring:
+  profiles: local
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    database: h2
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+server:
+  port: 8080
+
+boiled-egg:
+  async-executor:
+    core-pool-size: 2
+    max-pool-size: 5
+    queue-capacity: 10

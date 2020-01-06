@@ -1,0 +1,231 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+import java.nio.file.Paths
+
+buildscript {
+    ext {
+        springBootVersion = '2.2.2.RELEASE'
+        gradleSshVersion = '2.10.1'
+    }
+
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.hidetake:gradle-ssh-plugin:${gradleSshVersion}")
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.hidetake.ssh' version '2.10.1'
+    id 'org.asciidoctor.convert' version '2.4.0'
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id 'jacoco'
+}
+
+group 'com.depromeet.boiledegg'
+//version '0.0.1-' + new Date().format("yyyyMMddHHmmss")
+
+ext {
+    javaVersion = JavaVersion.VERSION_12
+
+    profile = (!project.hasProperty('profile') || !profile) ? 'local' : profile
+    mainClass = 'com.depromeet.boiledegg.EntryPoint'
+
+    snippetsDir = file('build/generated-snippets')
+    uploadRootPath = "/etc/${rootProject.name}/"
+    uploadServicePath = '/etc/init.d/'
+
+    timezone = 'Asia/Seoul'
+
+    service = [
+            'name': rootProject.name,
+            'requiredStart': '',
+            'requiredStop': '',
+            'description': 'Depremeet. Boiled Egg',
+            'jarPath': uploadRootPath
+    ]
+
+    versions = [
+            'embedded-redis'        : '0.7.+',
+            'uuid'                  : '3.2.+',
+            'caffeine'              : '2.8.+',
+            'aws'                   : '1.11.+',
+            'modelmapper'           : '2.3.+',
+    ]
+}
+
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.4"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+check.dependsOn jacocoTestReport
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    options.encoding = 'UTF-8'
+    options.debug = true
+    options.compilerArgs += '-parameters'
+}
+
+springBoot {
+    mainClassName = 'com.depromeet.boiledegg.EntryPoint'
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+}
+
+bootJar {
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
+}
+
+processResources {
+    includeEmptyDirs = false
+
+    exclude {
+        details -> details.file.name.endsWith('.yml') &&
+                !details.file.name.equals('application-' + profile + '.yml') &&
+                !details.file.name.equals('application.yml') &&
+                !details.file.name.equals('application-oauth.yml')
+    }
+
+    filesMatching('application.yml') {
+        filter ReplaceTokens, tokens: [
+                activeProfiles: profile
+        ]
+    }
+}
+
+ssh.settings {
+    knownHosts = file(Paths.get(System.getProperty('user.home')).resolve('.ssh/known_hosts'))
+}
+
+remotes {
+    dev {
+        host = ''
+        user = ''
+        identity = file(Paths.get(System.getProperty('user.home')).resolve('.ssh/boiled-egg.pem'))
+    }
+
+    prod {
+        host = 'boiled-egg-api.jaeyeonling.com'
+        user = 'ubuntu'
+        identity = file(Paths.get(System.getProperty('user.home')).resolve('.ssh/boiled-egg.pem'))
+    }
+}
+
+/**
+ * Options: -Pprofile=dev, prod
+ */
+task deploy(dependsOn: [clean, test, bootJar]) {
+    tasks.findByName('test').mustRunAfter('clean')
+    tasks.findByName('bootJar').mustRunAfter('test')
+
+    doLast {
+        ssh.run {
+            session(remotes."$profile") {
+                execute 'if [ ! -d \"' + uploadRootPath + '\" ]; then sudo mkdir ' + uploadRootPath + '; fi'
+                put from: project.buildDir.getPath() + '/libs/' + rootProject.name + '.jar', into: '.'
+                executeSudo 'mv ~/' + rootProject.name + '.jar ' + uploadRootPath
+
+                String script = new File(project.projectDir.getPath() + '/script/service.sh').getText('utf-8')
+                script = script.replace('<NAME>', service['name'])
+                        .replace('<REQUIRED_START>', service['requiredStart'])
+                        .replace('<REQUIRED_STOP>', service['requiredStop'])
+                        .replace('<DESCRIPTION>', service['description'])
+                        .replace('<PATH_TO_JAR>', service['jarPath'])
+                        .replace('<ENVIRONMENT>', profile)
+                        .replace('<TIMEZONE>', timezone)
+                put text: script, into: './' + rootProject.name
+                executeSudo 'mv ~/' + rootProject.name + ' ' + uploadServicePath + rootProject.name
+                executeSudo 'chmod +x ' + uploadServicePath + rootProject.name
+                executeSudo 'update-rc.d ' + rootProject.name + ' defaults'
+                executeSudo 'service ' + rootProject.name + ' restart'
+            }
+        }
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    implementation 'org.springframework.session:spring-session-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
+
+    runtimeOnly 'com.h2database:h2'
+
+    implementation 'org.slf4j:slf4j-api'
+    implementation 'org.slf4j:jcl-over-slf4j'
+
+    implementation 'ch.qos.logback:logback-classic'
+    implementation 'ch.qos.logback:logback-core'
+
+    implementation(group: 'it.ozimov', name: 'embedded-redis', version: versions['embedded-redis'])
+
+    implementation(group: 'com.fasterxml.uuid', name: 'java-uuid-generator', version: versions['uuid'])
+
+    implementation(group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: versions['caffeine'])
+
+    implementation(group: 'com.amazonaws', name: 'aws-java-sdk-bom', version: versions['aws'], ext: 'pom')
+    implementation(group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: versions['aws'])
+    implementation(group: 'com.amazonaws', name: 'aws-java-sdk-ses', version: versions['aws'])
+
+    implementation(group: 'org.modelmapper', name: 'modelmapper', version: versions['modelmapper'])
+}

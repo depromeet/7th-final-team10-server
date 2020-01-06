@@ -1,0 +1,38 @@
+spring:
+  profiles: dev
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    format-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/boiledegg?useUnicode=true&characterEncoding=utf8&useLocalSessionState=true
+    username: user
+    password: password
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      pool-name: boiled-egg-dbcp
+      minimum-idle: 4
+      maximum-pool-size: 16
+
+server:
+  port: 8080
+  error:
+    include-exception: false
+    whitelabel:
+      enabled: false
+
+boiled-egg:
+  async-executor:
+    core-pool-size: 2
+    max-pool-size: 5
+    queue-capacity: 10
+
+
+

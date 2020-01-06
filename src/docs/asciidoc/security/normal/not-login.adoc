@@ -1,0 +1,22 @@
+=== 로그인 한 유저 허용 (Not Login)
+
+|===
+| 로그인 한 유저만 허용하는 API를 로그인 안한 유저가 요청하였을 때
+|===
+
+CURL:
+
+include::../../{snippets}/security/normal/not-login/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/security/normal/not-login/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/security/normal/not-login/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/security/normal/not-login/http-response.adoc[]
+

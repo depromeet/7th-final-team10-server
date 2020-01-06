@@ -1,0 +1,21 @@
+=== 상태 체크
+
+|===
+| 서버 상태 체크
+|===
+
+CURL:
+
+include::../{snippets}/default/health-check/curl-request.adoc[]
+
+HTTPie:
+
+include::../{snippets}/default/health-check/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../{snippets}/default/health-check/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../{snippets}/default/health-check/http-response.adoc[]

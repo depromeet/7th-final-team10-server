@@ -1,0 +1,22 @@
+=== 책 반납 완료
+
+|===
+| 빌려줬던 책을 반납받고 완료한다.
+| 책을 소유한 사람만 책 반납을 완료할 수 있다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/take/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/take/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/take/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/take/http-response.adoc[]

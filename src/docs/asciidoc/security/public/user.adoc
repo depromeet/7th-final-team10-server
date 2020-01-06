@@ -1,0 +1,21 @@
+=== 모두 허용 (User)
+
+|===
+| 모두 허용하는 API를 유저 권한을 가진 유저가 요청하였을 때
+|===
+
+CURL:
+
+include::../../{snippets}/security/public/user/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/security/public/user/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/security/public/user/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/security/public/user/http-response.adoc[]

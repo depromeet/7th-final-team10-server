@@ -1,0 +1,22 @@
+=== 책 교환 작업 등록
+
+|===
+| 책 교환 작업을 등록한다.
+| 책 교환 작업을 등록하면 책을 소유한 사람은 요청을 수락할 수 있다.
+|===
+
+CURL:
+
+include::../../{snippets}/bookstores/save/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/bookstores/save/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/bookstores/save/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/bookstores/save/http-response.adoc[]

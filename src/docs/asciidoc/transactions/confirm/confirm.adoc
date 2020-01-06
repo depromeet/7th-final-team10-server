@@ -1,0 +1,22 @@
+=== 책 교환 요청 수락
+
+|===
+| 책 교환 요청을 수락한다.
+| 책을 소유한 사람만 승인할 수 있다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/confirm/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/confirm/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/confirm/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/confirm/http-response.adoc[]

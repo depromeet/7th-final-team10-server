@@ -1,0 +1,21 @@
+=== 구글
+
+|===
+| 구글 인증 회원가입 / 로그인
+|===
+
+CURL:
+
+include::../{snippets}/oauth2/google/curl-request.adoc[]
+
+HTTPie:
+
+include::../{snippets}/oauth2/google/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../{snippets}/oauth2/google/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../{snippets}/oauth2/google/http-response.adoc[]

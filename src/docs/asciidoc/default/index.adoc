@@ -1,0 +1,6 @@
+[[default]]
+== 공통 API
+
+include::health-check.adoc[]
+
+include::not-found/index.adoc[]

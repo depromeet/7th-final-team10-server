@@ -1,0 +1,21 @@
+=== 책 등록
+
+|===
+| 책을 등록한다.
+|===
+
+CURL:
+
+include::../../{snippets}/books/save/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/books/save/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/books/save/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/books/save/http-response.adoc[]

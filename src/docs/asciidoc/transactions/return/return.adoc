@@ -1,0 +1,22 @@
+=== 책 반납
+
+|===
+| 빌렸던 책 반납한다.
+| 책 교환 요청을 한 사람만 반납할 수 있다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/return/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/return/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/return/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/return/http-response.adoc[]

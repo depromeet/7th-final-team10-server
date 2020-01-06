@@ -1,0 +1,17 @@
+=== Body
+|===
+| field | 설명
+
+| `message`
+| 에러 메시지
+
+| `status`
+| HTTP Status Code와 같다.
+
+| `code`
+| 내부 에러 코드
+
+| `fieldErrors`
+| FieldError 의 배열로, 에러에 대한 세부 내용을 담고 있습니다.
+
+|===

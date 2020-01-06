@@ -1,0 +1,22 @@
+=== 모두 허용 (Admin)
+
+|===
+| 모두 허용하는 API를 어드민 권한을 가진 유저가 요청하였을 때
+|===
+
+CURL:
+
+include::../../{snippets}/security/public/admin/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/security/public/admin/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/security/public/admin/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/security/public/admin/http-response.adoc[]
+

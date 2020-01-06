@@ -1,0 +1,18 @@
+[[transactions]]
+== 책 교환 관련 API
+
+include::find-all/index.adoc[]
+
+include::find-by-id/index.adoc[]
+
+include::save/index.adoc[]
+
+include::confirm/index.adoc[]
+
+include::reject/index.adoc[]
+
+include::cancel/index.adoc[]
+
+include::return/index.adoc[]
+
+include::take/index.adoc[]

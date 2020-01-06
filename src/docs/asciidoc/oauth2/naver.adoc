@@ -1,0 +1,21 @@
+=== 네이버
+
+|===
+| 네이버 인증 회원가입 / 로그인
+|===
+
+CURL:
+
+include::../{snippets}/oauth2/naver/curl-request.adoc[]
+
+HTTPie:
+
+include::../{snippets}/oauth2/naver/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../{snippets}/oauth2/naver/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../{snippets}/oauth2/naver/http-response.adoc[]

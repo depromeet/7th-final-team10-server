@@ -1,0 +1,21 @@
+=== 책 조회 (등록한 책 기준으로)
+
+|===
+| 등록한 책 기준으로 책의 정보를 조회한다.
+|===
+
+CURL:
+
+include::../../{snippets}/books/search-by-book/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/books/search-by-book/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/books/search-by-book/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/books/search-by-book/http-response.adoc[]

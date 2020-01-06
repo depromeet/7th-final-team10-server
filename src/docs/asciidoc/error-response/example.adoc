@@ -1,0 +1,11 @@
+=== 예시
+
+----
+{
+    "message": "Internal Server Error",
+    "status": 500,
+    "code": "-100",
+    "fieldErrors": [
+    ]
+}
+----

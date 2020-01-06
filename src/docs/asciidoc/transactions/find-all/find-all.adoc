@@ -1,0 +1,21 @@
+=== 책 교환 작업 리스트 조회
+
+|===
+| 책 교환 작업 리스트를 조회한다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/find-all/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/find-all/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/find-all/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/find-all/http-response.adoc[]

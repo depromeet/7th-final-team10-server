@@ -1,0 +1,21 @@
+=== 카카오
+
+|===
+| 카카오 인증 회원가입 / 로그인
+|===
+
+CURL:
+
+include::../{snippets}/oauth2/kakao/curl-request.adoc[]
+
+HTTPie:
+
+include::../{snippets}/oauth2/kakao/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../{snippets}/oauth2/kakao/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../{snippets}/oauth2/kakao/http-response.adoc[]

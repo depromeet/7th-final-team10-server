@@ -1,0 +1,21 @@
+=== 책 조회
+
+|===
+| 책을 조회한다.
+|===
+
+CURL:
+
+include::../../{snippets}/books/find-by-id/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/books/find-by-id/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/books/find-by-id/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/books/find-by-id/http-response.adoc[]

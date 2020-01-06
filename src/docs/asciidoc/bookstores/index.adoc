@@ -1,0 +1,8 @@
+[[bookstores]]
+== 책방 관련 API
+
+include::find-all/index.adoc[]
+
+include::find-by-id/index.adoc[]
+
+include::save/index.adoc[]

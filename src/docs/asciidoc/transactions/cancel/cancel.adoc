@@ -1,0 +1,22 @@
+=== 책 교환 요청 취소
+
+|===
+| 책 교환 요청을 취소한다.
+| 책 교환 요청을 한 사람만 거절할 수 있다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/cancel/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/cancel/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/cancel/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/cancel/http-response.adoc[]

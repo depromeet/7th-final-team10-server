@@ -1,0 +1,10 @@
+[[security]]
+== 테스트용 인증 API
+
+include::normal/index.adoc[]
+
+include::only-admin/index.adoc[]
+
+include::only-user/index.adoc[]
+
+include::public/index.adoc[]

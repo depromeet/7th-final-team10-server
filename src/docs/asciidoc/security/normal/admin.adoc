@@ -1,0 +1,21 @@
+=== 로그인 한 유저 허용 (Admin)
+
+|===
+| 로그인 한 유저만 허용하는 API를 어드민 권한을 가진 유저가 요청하였을 때
+|===
+
+CURL:
+
+include::../../{snippets}/security/normal/admin/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/security/normal/admin/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/security/normal/admin/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/security/normal/admin/http-response.adoc[]

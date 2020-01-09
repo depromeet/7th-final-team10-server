@@ -121,7 +121,9 @@ processResources {
         details -> details.file.name.endsWith('.yml') &&
                 !details.file.name.equals('application-' + profile + '.yml') &&
                 !details.file.name.equals('application.yml') &&
-                !details.file.name.equals('application-oauth.yml')
+                !details.file.name.equals('application-oauth.yml') &&
+                !details.file.name.equals('application-aws.yml') &&
+                !details.file.name.equals('application-kakao.yml')
     }
 
     filesMatching('application.yml') {

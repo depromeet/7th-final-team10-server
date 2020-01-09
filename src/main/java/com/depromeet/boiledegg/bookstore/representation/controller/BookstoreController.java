@@ -21,7 +21,7 @@ import java.net.URI;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(BookstoreController.BASE_PATH)
-final class BookstoreController {
+public class BookstoreController {
 
     // TODO like
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-final class SystemController {
+public class SystemController {
 
     @GetMapping("/current-time-millis")
     public long currentTimeMillis() {

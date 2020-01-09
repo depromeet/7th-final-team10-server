@@ -25,7 +25,7 @@ import java.net.URI;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(TransactionController.BASE_PATH)
-final class TransactionController {
+public class TransactionController {
 
     static final String BASE_PATH = "/transactions";
 

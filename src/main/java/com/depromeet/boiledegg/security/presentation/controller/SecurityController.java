@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-final class SecurityController {
+public class SecurityController {
 
     @GetMapping("/only-admin")
     ResponseEntity<String> onlyAdmin() {

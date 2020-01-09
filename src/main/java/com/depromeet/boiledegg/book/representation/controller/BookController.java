@@ -27,7 +27,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(BookController.BASE_PATH)
-final class BookController {
+public class BookController {
 
     // TODO like
 

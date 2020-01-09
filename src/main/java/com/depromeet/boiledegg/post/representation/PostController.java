@@ -21,7 +21,7 @@ import static java.util.stream.Collectors.toUnmodifiableList;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(PostController.BASE_PATH)
-final class PostController {
+public class PostController {
 
     static final String BASE_PATH = "/posts";
 

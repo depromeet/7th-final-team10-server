@@ -1,7 +1,7 @@
 package com.depromeet.boiledegg.transaction.domain.entity;
 
 import com.depromeet.boiledegg.book.domain.entity.Book;
-import com.depromeet.boiledegg.common.domain.entity.AuditEntity;
+import com.depromeet.boiledegg.common.domain.entity.CreateByAuditEntity;
 import com.depromeet.boiledegg.common.infrastructure.security.SessionUser;
 import com.depromeet.boiledegg.transaction.domain.TransactionStatus;
 import lombok.AccessLevel;
@@ -28,7 +28,7 @@ import javax.persistence.Table;
         }
 )
 @Entity
-public class Transaction extends AuditEntity {
+public class Transaction extends CreateByAuditEntity {
 
     // TODO change event
 

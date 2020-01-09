@@ -14,7 +14,7 @@ import javax.persistence.MappedSuperclass;
 @Slf4j
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class AuditEntity extends DateAuditEntity {
+public abstract class CreateByAuditEntity extends DateAuditEntity {
 
     @Getter
     @CreatedBy

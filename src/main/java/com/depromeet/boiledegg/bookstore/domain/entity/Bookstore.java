@@ -2,7 +2,7 @@ package com.depromeet.boiledegg.bookstore.domain.entity;
 
 import com.depromeet.boiledegg.common.domain.LikeCount;
 import com.depromeet.boiledegg.common.domain.Location;
-import com.depromeet.boiledegg.common.domain.entity.AuditEntity;
+import com.depromeet.boiledegg.common.domain.entity.CreateByAuditEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table // TODO (uniqueConstraints = @UniqueConstraint(columnNames = {"owner", "name"}))
 @Entity
-public class Bookstore extends AuditEntity {
+public class Bookstore extends CreateByAuditEntity {
 
     @Getter
     @Column(nullable = false)

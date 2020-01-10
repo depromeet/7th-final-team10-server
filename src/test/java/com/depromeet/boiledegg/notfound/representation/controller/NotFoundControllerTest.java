@@ -1,6 +1,6 @@
 package com.depromeet.boiledegg.notfound.representation.controller;
 
-import com.depromeet.boiledegg.account.domain.Role;
+import com.depromeet.boiledegg.user.domain.Role;
 import com.depromeet.boiledegg.support.ApiDocumentUtil;
 import com.depromeet.boiledegg.support.ControllerSupport;
 import com.depromeet.boiledegg.support.WithCustomMockUser;

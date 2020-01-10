@@ -1,6 +1,6 @@
 package com.depromeet.boiledegg.common.infrastructure.security;
 
-import com.depromeet.boiledegg.account.domain.Role;
+import com.depromeet.boiledegg.user.domain.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;

@@ -1,8 +1,8 @@
 package com.depromeet.boiledegg.common.infrastructure.security;
 
-import com.depromeet.boiledegg.account.application.AccountService;
-import com.depromeet.boiledegg.account.domain.Role;
-import com.depromeet.boiledegg.account.domain.entity.Account;
+import com.depromeet.boiledegg.user.application.UserService;
+import com.depromeet.boiledegg.user.domain.Role;
+import com.depromeet.boiledegg.user.domain.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 @Service
 public final class CustomOAuth2Service implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
 
-    private final AccountService accountService;
+    private final UserService userService;
 
     private final AuthorityFactory authorityFactory;
 
@@ -43,13 +43,13 @@ public final class CustomOAuth2Service implements OAuth2UserService<OAuth2UserRe
                 oAuth2User.getAttributes()
         );
 
-        final var account = createOrUpdate(attributes);
+        final var user = createOrUpdate(attributes);
 
         final var sessionUser = SessionUser.builder()
-                .id(account.getId())
-                .email(account.getEmail())
-                .name(account.getName())
-                .picture(account.getPicture())
+                .id(user.getId())
+                .email(user.getEmail())
+                .name(user.getName())
+                .picture(user.getPicture())
                 .build();
         httpSession.setAttribute(
                 SessionUser.ATTRIBUTE_KEY,
@@ -57,17 +57,17 @@ public final class CustomOAuth2Service implements OAuth2UserService<OAuth2UserRe
         );
 
         return new DefaultOAuth2User(
-                authorityFactory.create(account.getRole()),
+                authorityFactory.create(user.getRole()),
                 attributes.getAttributes(),
                 attributes.getNameAttributeKey()
         );
     }
 
-    private Account createOrUpdate(final OAuthAttributes oAuthAttributes) {
-        final var account = accountService.findByEmail(oAuthAttributes.getEmail())
-                .map(foundAccount -> foundAccount.updateName(oAuthAttributes.getName()))
-                .map(foundAccount -> foundAccount.updatePicture(oAuthAttributes.getPicture()))
-                .orElseGet(() -> Account.builder()
+    private User createOrUpdate(final OAuthAttributes oAuthAttributes) {
+        final var user = userService.findByEmail(oAuthAttributes.getEmail())
+                .map(foundUser -> foundUser.updateName(oAuthAttributes.getName()))
+                .map(foundUser -> foundUser.updatePicture(oAuthAttributes.getPicture()))
+                .orElseGet(() -> User.builder()
                         .authProvider(oAuthAttributes.getAuthProvider())
                         .email(oAuthAttributes.getEmail())
                         .name(oAuthAttributes.getName())
@@ -75,6 +75,6 @@ public final class CustomOAuth2Service implements OAuth2UserService<OAuth2UserRe
                         .role(Role.USER)
                         .build());
 
-        return accountService.save(account);
+        return userService.save(user);
     }
 }

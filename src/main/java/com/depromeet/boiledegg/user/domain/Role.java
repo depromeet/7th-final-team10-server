@@ -1,4 +1,4 @@
-package com.depromeet.boiledegg.account.domain;
+package com.depromeet.boiledegg.user.domain;
 
 public enum Role {
 

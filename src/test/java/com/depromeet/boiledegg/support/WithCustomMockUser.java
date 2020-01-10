@@ -1,6 +1,6 @@
 package com.depromeet.boiledegg.support;
 
-import com.depromeet.boiledegg.account.domain.Role;
+import com.depromeet.boiledegg.user.domain.Role;
 import org.springframework.security.test.context.support.WithSecurityContext;
 
 import java.lang.annotation.Retention;

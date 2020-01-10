@@ -1,7 +1,7 @@
-package com.depromeet.boiledegg.account.domain.entity;
+package com.depromeet.boiledegg.user.domain.entity;
 
-import com.depromeet.boiledegg.account.domain.AuthProvider;
-import com.depromeet.boiledegg.account.domain.Role;
+import com.depromeet.boiledegg.user.domain.AuthProvider;
+import com.depromeet.boiledegg.user.domain.Role;
 import com.depromeet.boiledegg.common.domain.entity.DateAuditEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"email", "authProvider"}))
 @Entity
-public class Account extends DateAuditEntity {
+public class User extends DateAuditEntity {
 
     @Getter
     @Column(nullable = false)
@@ -45,7 +45,7 @@ public class Account extends DateAuditEntity {
     private Role role;
 
     @Builder
-    public Account(
+    public User(
             final String email,
             final String name,
             final AuthProvider authProvider,
@@ -59,12 +59,12 @@ public class Account extends DateAuditEntity {
         this.role = role;
     }
 
-    public Account updateName(final String name) {
+    public User updateName(final String name) {
         this.name = name;
         return this;
     }
 
-    public Account updatePicture(final String picture) {
+    public User updatePicture(final String picture) {
         this.picture = picture;
         return this;
     }

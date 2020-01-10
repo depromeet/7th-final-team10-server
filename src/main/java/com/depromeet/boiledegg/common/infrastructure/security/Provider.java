@@ -1,6 +1,6 @@
 package com.depromeet.boiledegg.common.infrastructure.security;
 
-import com.depromeet.boiledegg.account.domain.AuthProvider;
+import com.depromeet.boiledegg.user.domain.AuthProvider;
 import lombok.AllArgsConstructor;
 
 import java.util.Arrays;

@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: boiled-egg-mysql-8
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=boiledegg
+      - MYSQL_ROOT_HOST=127.0.0.1
+      - TZ=Asia/Seoul
+    ports:
+      - '3306:3306'
+    healthcheck:
+      test: ['CMD', 'mysqladmin', '-uroot', '-proot', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  redis:
+    image: redis:5
+    container_name: boiled-egg-redis-5
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./volume/redis/data:/data
+    restart: always
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: jaeyeonling/boiled-egg/app:latest
+    ports:
+      - 8080:80
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+    links:
+      - redis:redis
+      - mysql:mysql
+    depends_on:
+      - redis
+      - mysql
+

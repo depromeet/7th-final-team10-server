@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk12:latest
+FROM adoptopenjdk/openjdk13:latest
 MAINTAINER Jaeyeon Kim <jaeyeonling@gmail.com>
 
 ADD /build/libs/boiled-egg.jar boiled-egg.jar

@@ -219,7 +219,7 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic'
     implementation 'ch.qos.logback:logback-core'
 
-    implementation(group: 'it.ozimov', name: 'embedded-redis', version: versions['embedded-redis'])
+    testImplementation(group: 'it.ozimov', name: 'embedded-redis', version: versions['embedded-redis'])
 
     implementation(group: 'com.fasterxml.uuid', name: 'java-uuid-generator', version: versions['uuid'])
 

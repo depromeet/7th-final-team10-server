@@ -1,5 +1,6 @@
 package com.depromeet.boiledegg.common.representation;
 
+import lombok.Getter;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
@@ -8,13 +9,14 @@ import static java.lang.Math.min;
 
 public final class PageRequest implements Pageable {
 
-    // TODO: 여러 개 검색하려면 로직 수정해야 함 (지금은 등록 날짜 기준으로만 함)
-
     private static final String DEFAULT_SORT_CRITERIA = "id";
     private static final int MIN_PAGE_NUMBER = 0;
     private static final int MAX_PAGE_SIZE = 20;
 
     private Pageable pageable;
+
+    @Getter
+    private String sortCriteria = DEFAULT_SORT_CRITERIA;
 
     public PageRequest() {
         this(org.springframework.data.domain.PageRequest.of(
@@ -32,14 +34,14 @@ public final class PageRequest implements Pageable {
     public void setPage(final int page) {
         pageable = org.springframework.data.domain.PageRequest.of(
                 max(MIN_PAGE_NUMBER, page),
-                pageable.getPageSize(),
-                pageable.getSort()
+                getPageSize(),
+                getSort()
         );
     }
 
     public void setSize(final int size) {
         pageable = org.springframework.data.domain.PageRequest.of(
-                pageable.getPageNumber(),
+                getPageNumber(),
                 min(MAX_PAGE_SIZE, size),
                 pageable.getSort()
         );
@@ -47,17 +49,19 @@ public final class PageRequest implements Pageable {
 
     public void setDirection(final Sort.Direction direction) {
         pageable = org.springframework.data.domain.PageRequest.of(
-                pageable.getPageNumber(),
-                pageable.getPageSize(),
+                getPageNumber(),
+                getPageSize(),
                 direction,
-                DEFAULT_SORT_CRITERIA
+                sortCriteria
         );
     }
 
     public void setSortCriteria(final String sortCriteria) {
+        this.sortCriteria = sortCriteria;
+
         pageable = org.springframework.data.domain.PageRequest.of(
-                pageable.getPageNumber(),
-                pageable.getPageSize(),
+                getPageNumber(),
+                getPageSize(),
                 getDirection(),
                 sortCriteria
         );

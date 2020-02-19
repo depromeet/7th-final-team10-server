@@ -1,1 +1,13 @@
 include::find-all.adoc[]
+
+include::find-all-paging.adoc[]
+
+include::find-all-sort-asc.adoc[]
+
+include::find-all-sort-desc.adoc[]
+
+include::find-all-sort-like-asc.adoc[]
+
+include::find-all-sort-like-desc.adoc[]
+
+include::find-all-paging-with-sort.adoc[]

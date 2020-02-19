@@ -18,4 +18,6 @@ public class BookstoreResponse {
     private String description;
 
     private Location location;
+
+    private int likeCount;
 }

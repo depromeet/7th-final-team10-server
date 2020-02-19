@@ -1,0 +1,21 @@
+=== 책방 좋아요
+
+|===
+| 책방에 좋아요를 표시한다.
+|===
+
+CURL:
+
+include::../../{snippets}/bookstores/like/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/bookstores/like/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/bookstores/like/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/bookstores/like/http-response.adoc[]

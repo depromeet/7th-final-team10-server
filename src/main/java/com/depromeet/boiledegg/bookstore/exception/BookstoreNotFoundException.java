@@ -4,7 +4,7 @@ import com.depromeet.boiledegg.common.exception.BaseRuntimeException;
 import com.depromeet.boiledegg.common.exception.ErrorCode;
 import com.depromeet.boiledegg.common.exception.ErrorStatus;
 
-public class BookstoreNotFoundException extends BaseRuntimeException {
+public final class BookstoreNotFoundException extends BaseRuntimeException {
 
     @Override
     public ErrorStatus getErrorStatus() {

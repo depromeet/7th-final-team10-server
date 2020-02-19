@@ -16,6 +16,7 @@ final class KakaoBookAssembler {
                 .price(document.getPrice())
                 .publisher(document.getPublisher())
                 .thumbnail(document.getThumbnail())
+                .datetime(document.getDatetime())
                 .build();
     }
 }

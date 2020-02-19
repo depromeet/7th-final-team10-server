@@ -1,5 +1,6 @@
 package com.depromeet.boiledegg.common.infrastructure.book;
 
+import java.util.Date;
 import java.util.List;
 
 public interface BookInformation {
@@ -19,4 +20,6 @@ public interface BookInformation {
     String getPublisher();
 
     String getThumbnail();
+
+    Date getPublishedAt();
 }

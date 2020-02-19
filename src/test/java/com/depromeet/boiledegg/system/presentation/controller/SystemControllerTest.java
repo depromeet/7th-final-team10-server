@@ -26,19 +26,4 @@ class SystemControllerTest extends ControllerSupport {
                         )
                 );
     }
-
-    @WithCustomMockUser
-    @Test
-    void me() throws Exception {
-        mvc.perform(get("/me"))
-                .andExpect(status().isOk())
-                .andDo(
-                        document(
-                                "system/me",
-                                ApiDocumentUtil.request(),
-                                ApiDocumentUtil.response(),
-                                pathParameters()
-                        )
-                );
-    }
 }

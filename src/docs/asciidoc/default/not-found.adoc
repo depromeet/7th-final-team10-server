@@ -1,0 +1,22 @@
+=== 없는 요청
+
+|===
+| 구현되지 않은 경로로 요청 시 응답
+|===
+
+CURL:
+
+include::../{snippets}/default/not-found/curl-request.adoc[]
+
+HTTPie:
+
+include::../{snippets}/default/not-found/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../{snippets}/default/not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../{snippets}/default/not-found/http-response.adoc[]
+

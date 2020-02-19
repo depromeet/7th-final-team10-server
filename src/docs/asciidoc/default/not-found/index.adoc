@@ -1,3 +1,0 @@
-include::login.adoc[]
-
-include::not-login.adoc[]

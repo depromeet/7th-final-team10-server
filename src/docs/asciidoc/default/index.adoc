@@ -3,4 +3,4 @@
 
 include::health-check.adoc[]
 
-include::not-found/index.adoc[]
+include::not-found.adoc[]

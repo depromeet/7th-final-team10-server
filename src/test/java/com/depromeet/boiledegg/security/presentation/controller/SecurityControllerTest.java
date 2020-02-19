@@ -1,9 +1,9 @@
 package com.depromeet.boiledegg.security.presentation.controller;
 
-import com.depromeet.boiledegg.user.domain.Role;
 import com.depromeet.boiledegg.support.ApiDocumentUtil;
 import com.depromeet.boiledegg.support.ControllerSupport;
 import com.depromeet.boiledegg.support.WithCustomMockUser;
+import com.depromeet.boiledegg.user.domain.Role;
 import org.junit.jupiter.api.Test;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -32,7 +32,7 @@ class SecurityControllerTest extends ControllerSupport {
     @Test
     void onlyAdmin_user() throws Exception {
         mvc.perform(get("/only-admin"))
-                .andExpect(status().isForbidden())
+                .andExpect(status().isUnauthorized())
                 .andDo(
                         document(
                                 "security/only-admin/user",
@@ -61,7 +61,7 @@ class SecurityControllerTest extends ControllerSupport {
     @Test
     void onlyUser_admin() throws Exception {
         mvc.perform(get("/only-user"))
-                .andExpect(status().isForbidden())
+                .andExpect(status().isUnauthorized())
                 .andDo(
                         document(
                                 "security/only-user/admin",

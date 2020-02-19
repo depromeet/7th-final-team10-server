@@ -1,0 +1,21 @@
+=== 내 책 교환 정보들 조회
+
+|===
+| 내가 신청하거나 신청받은 요청들에 대해 조회한다.
+|===
+
+CURL:
+
+include::../../{snippets}/user/find-all-transaction/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/user/find-all-transaction/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/user/find-all-transaction/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/user/find-all-transaction/http-response.adoc[]

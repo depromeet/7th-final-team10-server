@@ -1,0 +1,21 @@
+=== 내 정보 변경
+
+|===
+| 내 정보를 변경한다.
+|===
+
+CURL:
+
+include::../../{snippets}/user/update-me/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/user/update-me/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/user/update-me/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/user/update-me/http-response.adoc[]

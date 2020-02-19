@@ -1,0 +1,21 @@
+=== 내 책들 조회
+
+|===
+| 내가 등록한 책들을 조회한다.
+|===
+
+CURL:
+
+include::../../{snippets}/user/find-all-book/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/user/find-all-book/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/user/find-all-book/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/user/find-all-book/http-response.adoc[]

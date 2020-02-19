@@ -1,0 +1,21 @@
+=== 유저 정보 확인
+
+|===
+| 유저 정보를 확인한다.
+|===
+
+CURL:
+
+include::../../{snippets}/user/find-by-id/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/user/find-by-id/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/user/find-by-id/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/user/find-by-id/http-response.adoc[]

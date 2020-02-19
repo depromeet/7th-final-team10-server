@@ -6,13 +6,14 @@ import com.depromeet.boiledegg.post.domain.entity.Post;
 import com.depromeet.boiledegg.post.representation.PostSaveRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public final class PostService {
+public class PostService {
 
     private final PostRepository repository;
 
@@ -27,10 +28,12 @@ public final class PostService {
                 .build());
     }
 
+    @Transactional(readOnly = true)
     public Optional<Post> findById(final Long id) {
         return repository.findById(id);
     }
 
+    @Transactional(readOnly = true)
     public List<Post> findAll() {
         return repository.findAll();
     }

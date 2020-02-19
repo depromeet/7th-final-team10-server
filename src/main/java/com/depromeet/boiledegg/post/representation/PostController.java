@@ -6,6 +6,7 @@ import com.depromeet.boiledegg.post.domain.entity.Post;
 import com.depromeet.boiledegg.post.exception.PostNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,7 @@ public class PostController {
 
     private final PostResponseAssembler postResponseAssembler;
 
+    @Secured("ROLE_USER")
     @PostMapping
     ResponseEntity<PostResponse> save(@RequestBody final PostSaveRequest request) {
         final var post = postService.save(request);

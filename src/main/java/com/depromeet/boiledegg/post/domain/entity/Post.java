@@ -13,12 +13,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table
 public class Post {
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return Objects.equals(id, post.id) &&
+                Objects.equals(postBody, post.postBody);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, postBody);
+    }
 
     @Getter
     @Id

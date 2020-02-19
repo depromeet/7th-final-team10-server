@@ -14,9 +14,9 @@ public class AuthEntryPoint implements AuthenticationEntryPoint {
 
     private static final int DEFAULT_ERROR_STATUS = HttpStatus.UNAUTHORIZED.value();
     private static final String DEFAULT_ERROR_MESSAGE = "{" +
-            "\"message\":\"Unauthorized\"," +
+            "\"message\":\"UNAUTHORIZED\"," +
             "\"status\":401," +
-            "\"code\":\"-100\"," +
+            "\"code\":\"-104\"," +
             "\"fieldErrors\":[]" +
             "}";
 

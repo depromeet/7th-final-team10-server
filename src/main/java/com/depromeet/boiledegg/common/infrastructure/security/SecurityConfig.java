@@ -1,16 +1,15 @@
 package com.depromeet.boiledegg.common.infrastructure.security;
 
-import com.depromeet.boiledegg.user.domain.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
+import org.springframework.core.Ordered;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @RequiredArgsConstructor
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true, order = Ordered.HIGHEST_PRECEDENCE)
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -23,13 +22,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        final var admin = Role.ADMIN.toString();
-        final var user = Role.USER.toString();
-
         http.csrf().disable()
                 .cors().disable()
                 .headers().frameOptions().disable();
 
+        http.authorizeRequests()
+                .anyRequest()
+                .permitAll()
+
+                .and()
+                .oauth2Login().userInfoEndpoint().userService(customOAuth2Service)
+                .and()
+                .failureHandler(authFailureHandler)
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(authEntryPoint);
+
+        /* 개별 권한으로 변경
         http.authorizeRequests()
 
                 // Public
@@ -86,6 +95,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/books"
                 )
                 .permitAll()
+                .antMatchers(
+                        HttpMethod.GET,
+                        "/books/**"
+                )
+                .permitAll()
 
                 // Bookstores
                 .antMatchers(
@@ -109,7 +123,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 )
                 .permitAll()
 
-                .anyRequest().authenticated()
+                // Transactions
+
+                .anyRequest().permitAll()
                 .and()
                 .oauth2Login().userInfoEndpoint().userService(customOAuth2Service)
                 .and()
@@ -118,5 +134,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()
                 .authenticationEntryPoint(authEntryPoint)
         ;
+        */
     }
 }

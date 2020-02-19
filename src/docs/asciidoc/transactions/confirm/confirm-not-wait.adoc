@@ -1,0 +1,21 @@
+=== 책 교환 요청 수락 (책 교환 대기 상태가 아님)
+
+|===
+| 책 교환 요청 수락 시 책 교환 대기 상태가 아닐 경우 예외처리한다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/confirm-not-wait/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/confirm-not-wait/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/confirm-not-wait/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/confirm-not-wait/http-response.adoc[]

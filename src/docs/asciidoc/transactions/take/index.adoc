@@ -1,1 +1,7 @@
 include::take.adoc[]
+
+include::take-not-found.adoc[]
+
+include::take-not-mine.adoc[]
+
+include::take-not-return.adoc[]

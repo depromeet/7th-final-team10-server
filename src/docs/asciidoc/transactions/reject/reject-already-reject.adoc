@@ -1,0 +1,21 @@
+=== 책 교환 요청 거절 (이미 거절된 책 교환 작업)
+
+|===
+| 책 교환 요청 거절 시 이미 거절된 책 교환 작업일 경우 예외처리한다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/reject-already-reject/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/reject-already-reject/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/reject-already-reject/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/reject-already-reject/http-response.adoc[]

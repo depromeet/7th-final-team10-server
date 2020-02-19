@@ -10,8 +10,8 @@ import com.depromeet.boiledegg.transaction.representation.TransactionSaveRequest
 import com.depromeet.boiledegg.transaction.representation.assembler.TransactionResponseAssembler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +33,7 @@ public class TransactionController {
 
     private final TransactionResponseAssembler assembler;
 
+    @Secured("ROLE_USER")
     @PostMapping
     ResponseEntity<TransactionResponse> save(
             @LoginUser final SessionUser user,
@@ -61,6 +62,7 @@ public class TransactionController {
                 .orElseThrow(TransactionNotFoundException::new);
     }
 
+    @Secured("ROLE_USER")
     @PutMapping("/{id}/confirm")
     TransactionResponse confirm(
             @PathVariable final Long id,
@@ -74,6 +76,7 @@ public class TransactionController {
         return assembler.mapFrom(transaction);
     }
 
+    @Secured("ROLE_USER")
     @PutMapping("/{id}/reject")
     TransactionResponse reject(
             @PathVariable final Long id,
@@ -87,6 +90,7 @@ public class TransactionController {
         return assembler.mapFrom(transaction);
     }
 
+    @Secured("ROLE_USER")
     @PutMapping("/{id}/cancel")
     TransactionResponse cancel(
             @PathVariable final Long id,
@@ -100,6 +104,7 @@ public class TransactionController {
         return assembler.mapFrom(transaction);
     }
 
+    @Secured("ROLE_USER")
     @PutMapping("/{id}/return")
     TransactionResponse returns(
             @PathVariable final Long id,
@@ -113,6 +118,7 @@ public class TransactionController {
         return assembler.mapFrom(transaction);
     }
 
+    @Secured("ROLE_USER")
     @PutMapping("/{id}/take")
     TransactionResponse take(
             @PathVariable final Long id,

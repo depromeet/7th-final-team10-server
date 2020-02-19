@@ -1,1 +1,5 @@
 include::save.adoc[]
+
+include::save-book-already-borrowed.adoc[]
+
+include::save-book-not-found.adoc[]

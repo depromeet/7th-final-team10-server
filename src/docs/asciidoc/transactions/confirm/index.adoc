@@ -1,1 +1,7 @@
 include::confirm.adoc[]
+
+include::confirm-not-found.adoc[]
+
+include::confirm-not-wait.adoc[]
+
+include::confirm-not-mine.adoc[]

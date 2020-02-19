@@ -1,1 +1,7 @@
 include::cancel.adoc[]
+
+include::cancel-not-found.adoc[]
+
+include::cancel-already-wait.adoc[]
+
+include::cancel-not-mine.adoc[]

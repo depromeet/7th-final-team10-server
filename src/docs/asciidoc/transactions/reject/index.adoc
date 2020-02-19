@@ -1,1 +1,7 @@
 include::reject.adoc[]
+
+include::reject-not-found.adoc[]
+
+include::reject-already-reject.adoc[]
+
+include::reject-not-mine.adoc[]

@@ -1,0 +1,21 @@
+=== 책 반납 완료 (책을 빌리지 않음)
+
+|===
+| 책 반납 완료 시 책을 빌리지 않았으면 예외처리한다.
+|===
+
+CURL:
+
+include::../../{snippets}/transactions/take-not-return/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/transactions/take-not-return/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/transactions/take-not-return/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/transactions/take-not-return/http-response.adoc[]

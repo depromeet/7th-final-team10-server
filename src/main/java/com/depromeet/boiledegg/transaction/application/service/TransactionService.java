@@ -11,8 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -23,6 +23,7 @@ public class TransactionService {
 
     private final TransactionRepository repository;
 
+    @Transactional
     public Transaction save(
             final SessionUser user,
             final TransactionSaveRequest request
@@ -33,14 +34,17 @@ public class TransactionService {
         }
 
         return repository.save(Transaction.builder()
+                .userId(user.getId())
                 .book(book)
                 .build());
     }
 
+    @Transactional(readOnly = true)
     public Optional<Transaction> findById(final Long id) {
         return repository.findById(id);
     }
 
+    @Transactional(readOnly = true)
     public Page<Transaction> findAll(final Pageable pageable) {
         return repository.findAll(pageable);
     }
@@ -87,5 +91,17 @@ public class TransactionService {
 
     private Transaction findOrThrow(final Long id) {
         return findById(id).orElseThrow(TransactionNotFoundException::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Transaction> findByBookOwnerOrOwner(
+            final Long userId,
+            final Pageable pageable
+    ) {
+        return repository.findAllByBookOwnerOrOwner(
+                userId,
+                userId,
+                pageable
+        );
     }
 }

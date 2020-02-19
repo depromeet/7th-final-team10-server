@@ -1,0 +1,7 @@
+include::check.adoc[]
+
+include::check-not-found.adoc[]
+
+include::check-not-mine.adoc[]
+
+include::check-already-checked.adoc[]

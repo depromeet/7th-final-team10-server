@@ -1,0 +1,21 @@
+=== 알람 조회
+
+|===
+| 알람을 조회한다. 세부정보 조회 시 확인한 알람도 조회할 수 있다.
+|===
+
+CURL:
+
+include::../../{snippets}/notifications/find-by-id/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/notifications/find-by-id/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/notifications/find-by-id/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/notifications/find-by-id/http-response.adoc[]

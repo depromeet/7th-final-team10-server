@@ -1,0 +1,21 @@
+=== 알람 확인 (이미 확인된 알람)
+
+|===
+| 알람을 확인 시 이미 확인된 알람일 때 예외처리
+|===
+
+CURL:
+
+include::../../{snippets}/notifications/check-already-checked/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/notifications/check-already-checked/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/notifications/check-already-checked/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/notifications/check-already-checked/http-response.adoc[]

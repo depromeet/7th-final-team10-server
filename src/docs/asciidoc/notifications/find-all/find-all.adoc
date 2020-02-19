@@ -1,0 +1,21 @@
+=== 알람 리스트 조회
+
+|===
+| 알람 리스트를 조회한다. 알람을 확인했다면 조회되지 않는다.
+|===
+
+CURL:
+
+include::../../{snippets}/notifications/find-all/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/notifications/find-all/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/notifications/find-all/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/notifications/find-all/http-response.adoc[]

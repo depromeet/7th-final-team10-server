@@ -1,0 +1,21 @@
+=== 알람 확인 (내 알람이 아님)
+
+|===
+| 알람 확인 시 내 알람이 아닐 때 예외처리
+|===
+
+CURL:
+
+include::../../{snippets}/notifications/check-not-mine/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/notifications/check-not-mine/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/notifications/check-not-mine/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/notifications/check-not-mine/http-response.adoc[]

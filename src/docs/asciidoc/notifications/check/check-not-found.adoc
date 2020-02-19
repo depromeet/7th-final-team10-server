@@ -1,0 +1,21 @@
+=== 알람 확인 (알람을 찾을 수 없음)
+
+|===
+| 알람을 확인 시 알람이 없을 때 예외처리
+|===
+
+CURL:
+
+include::../../{snippets}/notifications/check-not-found/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/notifications/check-not-found/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/notifications/check-not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/notifications/check-not-found/http-response.adoc[]

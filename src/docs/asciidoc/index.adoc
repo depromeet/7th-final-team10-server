@@ -16,6 +16,12 @@ include::security/index.adoc[]
 
 include::system/index.adoc[]
 
+include::users/index.adoc[]
+
 include::books/index.adoc[]
 
 include::bookstores/index.adoc[]
+
+include::notifications/index.adoc[]
+
+include::transactions/index.adoc[]

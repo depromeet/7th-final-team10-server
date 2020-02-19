@@ -18,6 +18,8 @@ public enum ErrorCode implements ErrorStatus {
     BAD_REQUEST(HttpStatus.BAD_REQUEST, "-101"),
     NOT_FOUND(HttpStatus.NOT_FOUND, "-102"),
     FORBIDDEN(HttpStatus.FORBIDDEN, "-103"),
+    UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "-104"),
+    DISALLOW_SORT_CRITERIA(HttpStatus.BAD_REQUEST, "-105"),
 
     POST_NOT_FOUND(HttpStatus.NOT_FOUND, "-200"),
 
@@ -29,6 +31,13 @@ public enum ErrorCode implements ErrorStatus {
     TRANSACTION_NOT_FOUND(HttpStatus.NOT_FOUND, "-500"),
     CANNOT_CHANGE_TRANSACTION_STATUS(HttpStatus.BAD_REQUEST, "-501"),
     CANNOT_BORROW_MY_BOOK(HttpStatus.BAD_REQUEST, "-502"),
+    BOOK_ALREADY_BORROW(HttpStatus.BAD_REQUEST, "-503"),
+    BOOK_ALREADY_WAIT(HttpStatus.BAD_REQUEST, "-504"),
+
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND, "-600"),
+
+    NOTIFICATION_NOT_FOUND(HttpStatus.NOT_FOUND, "-700"),
+    NOTIFICATION_ALREADY_CHECKED(HttpStatus.BAD_REQUEST, "-701"),
     ;
 
     private final HttpStatus status;

@@ -10,6 +10,8 @@ public final class MockSessionUserHolder {
             .id(1L)
             .email("jaeyeonling@gmail.com")
             .name("Jaeyeon Kim")
+            .nickname("Jaeyeonling")
+            .picture("https://google.com")
             .build();
 
     private SessionUser sessionUser = defaultSessionUser;

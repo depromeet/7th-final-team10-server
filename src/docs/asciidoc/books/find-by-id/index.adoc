@@ -1,1 +1,3 @@
 include::find-by-id.adoc[]
+
+include::find-by-id-not-found.adoc[]

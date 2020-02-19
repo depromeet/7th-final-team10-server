@@ -1,0 +1,21 @@
+=== 책 정보 조회 (ISBN 기준)
+
+|===
+| 책을 등록하기 전, ISBN 기준으로 책 정보 리스트를 조회한다.
+|===
+
+CURL:
+
+include::../../{snippets}/books/search-by-isbn/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/books/search-by-isbn/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/books/search-by-isbn/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/books/search-by-isbn/http-response.adoc[]

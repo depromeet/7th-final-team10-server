@@ -1,1 +1,3 @@
-include::search.adoc[]
+include::search-by-title.adoc[]
+
+include::search-by-isbn.adoc[]

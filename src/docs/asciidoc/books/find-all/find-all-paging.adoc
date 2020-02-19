@@ -1,0 +1,21 @@
+=== 책 리스트 조회 (페이징)
+
+|===
+| 책 리스트를 조회한다. (페이징)
+|===
+
+CURL:
+
+include::../../{snippets}/books/find-all-paging/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/books/find-all-paging/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/books/find-all-paging/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/books/find-all-paging/http-response.adoc[]

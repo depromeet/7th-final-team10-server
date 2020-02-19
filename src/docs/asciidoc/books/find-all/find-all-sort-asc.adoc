@@ -1,0 +1,21 @@
+=== 책 리스트 조회 (날짜 기준 오름차순 정렬)
+
+|===
+| 책 리스트를 조회한다. (날짜 기준 오름차순 정렬)
+|===
+
+CURL:
+
+include::../../{snippets}/books/find-all-sort-asc/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/books/find-all-sort-asc/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/books/find-all-sort-asc/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/books/find-all-sort-asc/http-response.adoc[]

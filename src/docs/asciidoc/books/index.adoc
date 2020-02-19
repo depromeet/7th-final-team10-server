@@ -1,13 +1,13 @@
 [[books]]
 == 책 관련 API
 
+include::save/index.adoc[]
+
 include::find-all/index.adoc[]
 
 include::find-by-id/index.adoc[]
 
 include::like/index.adoc[]
-
-include::save/index.adoc[]
 
 include::search/index.adoc[]
 

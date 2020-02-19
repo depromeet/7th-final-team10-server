@@ -1,0 +1,21 @@
+=== 책 좋아요 (책을 찾을 수 없음)
+
+|===
+| 책에 좋아요 시 책이 없을 떄 예외처리
+|===
+
+CURL:
+
+include::../../{snippets}/books/like-not-found/curl-request.adoc[]
+
+HTTPie:
+
+include::../../{snippets}/books/like-not-found/httpie-request.adoc[]
+
+Request HTTP Example:
+
+include::../../{snippets}/books/like-not-found/http-request.adoc[]
+
+Response HTTP Example:
+
+include::../../{snippets}/books/like-not-found/http-response.adoc[]

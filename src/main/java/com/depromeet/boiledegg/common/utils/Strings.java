@@ -5,7 +5,7 @@ import lombok.experimental.UtilityClass;
 import static java.util.Objects.isNull;
 
 @UtilityClass
-public final class StringUtils {
+public final class Strings {
 
     public boolean isBlank(final String value) {
         return isNull(value) || value.isBlank();

@@ -198,7 +198,7 @@
 
 [6주차 로그인 회원기입 내위치 메인 메인 메뉴 알람 XD](./asset/6th-week-signin-signup-mylocation-main-menu-alarm.xd)
 
-##### 7주차
+### 7주차
 
 1. 제플린에서 다운 받을 수 있게 XD > '구성 요소 만들기' 등록해놓기
 2. 대여 완료 시 대여 정보 팝업 추가 (이메일 정보 보여주기)
@@ -218,20 +218,6 @@
 ### URL
 - API: http://boiled-egg-api.jaeyeonling.com:8080
 - Docs: http://boiled-egg-api.jaeyeonling.com:8080/docs/index.html
-
-## 의존 관계
-
-![dependency](./asset/dependency.png)
-
-## 패키지
-
-![package](./asset/package.png)
-
-![common](./asset/common.png)
-
-## 설정 파일
-
-![resource](./asset/resource.png)
 
 ## 요구사항
 1. [x] 회원가입 / 로그인

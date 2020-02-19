@@ -1,7 +1,7 @@
-package com.depromeet.boiledegg.common.domain.entity;
+package com.depromeet.boiledegg.common.domain.entity.base;
 
 import lombok.Getter;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Column;
@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class DateAuditEntity extends CreateDateAuditEntity {
+public abstract class CreateDateAuditEntity extends AutoPrimaryEntity {
 
     @Getter
-    @LastModifiedDate
+    @CreatedDate
     @Column(nullable = false)
-    private LocalDateTime lastModifiedDate;
+    private LocalDateTime createdDate;
 }

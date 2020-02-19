@@ -1,4 +1,4 @@
-package com.depromeet.boiledegg.common.domain.entity;
+package com.depromeet.boiledegg.common.domain.entity.base;
 
 import lombok.Getter;
 

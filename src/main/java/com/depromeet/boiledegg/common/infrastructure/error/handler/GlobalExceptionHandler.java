@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -31,6 +32,12 @@ final class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     ResponseEntity<Object> baseException(final BaseException exception) {
         log.debug("Platform exception ", exception);
         return makeResponse(exception.getErrorStatus());
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    ResponseEntity<Object> accessDeniedException(final AccessDeniedException exception) {
+        log.debug("Access denied exception ", exception);
+        return makeResponse(ErrorCode.UNAUTHORIZED);
     }
 
     @ExceptionHandler(Throwable.class)
